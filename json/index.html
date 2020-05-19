@@ -75,7 +75,7 @@
     <br style="clear:both;">
 </main>
 <link href="./JSON在线解析及格式化验证 - JSON.cn_files/jquery.numberedtextarea.css" rel="stylesheet">
-<script src="./JSON在线解析及格式化验证 - JSON.cn_files/hm.js"></script><script src="./JSON在线解析及格式化验证 - JSON.cn_files/jquery.min.js"></script>
+<script src="./JSON在线解析及格式化验证 - JSON.cn_files/hm.js"></script><script src="./JSON在线解析及格式化验证 - JSON.cn_files/jquery.js"></script>
 <script src="./JSON在线解析及格式化验证 - JSON.cn_files/jquery.message.js"></script><div style="clear:both;"></div><div id="jquery-beauty-msg"></div>
 <script src="./JSON在线解析及格式化验证 - JSON.cn_files/bignumber.min.js"></script>
 <script src="./JSON在线解析及格式化验证 - JSON.cn_files/jquery.json.js"></script>
@@ -115,7 +115,7 @@ $('#json-src').keyup(function(){
         if (content.substr(0,1) === '<' && content.substr(-1,1) === '>') {
             try{
                 var json_obj = $.xml2json(content);
-                content = JSON.stringify(json_obj);
+                content = JSONEx.stringify(json_obj);
             }catch(e){
                 result = '解析错误：<span style="color: #f1592a;font-weight:bold;">' + e.message + '</span>';
                 current_json_str = result;
@@ -126,7 +126,7 @@ $('#json-src').keyup(function(){
         }
         try{
             current_json = jsonlint.parse(content);
-            current_json_str = JSON.stringify(current_json);
+            current_json_str = JSONEx.stringify(current_json);
             //current_json = JSON.parse(content);
             result = new JSONFormat(content,4).toString();
         }catch(e){
